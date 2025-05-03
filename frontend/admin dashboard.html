@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin dash board</title>
+    <link rel="icon" href="assets/Fitness-Logo.png">
+    <link rel="stylesheet" href="admin dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+   <header>
+
+    <img src="assets/Fitness-Logo.png" alt="">
+        <div class="profile">
+            <p>Hello User</p>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+   </header>
+
+    <aside class="sidebar">
+        <div class="brand">One</div>
+        <nav class="nav">
+          <a href="#" class="nav-item active"><i class="fas fa-desktop"></i> Dashboard</a>
+          <a href="#"><i class="fas fa-user"></i> Profile</a>
+          <a href="#" onclick="productsNavigate()"><i class="fas fa-lock"></i> Products</a>
+          <a href="#"><i class="fas fa-circle-info"></i> Users</a>
+        </nav>
+        <div class="logout">
+          <a href="#"><i class="fas fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </aside>
+   
+    <div class="products">
+       
+
+        <div class="fitering">
+            <div class="product_filter">
+                <label for="">Filter by :
+                    <select id="selector">
+                        <option value="" selected disabled>Select</option>
+                    </select>
+                </label> 
+            </div>  
+    
+            <div class="sort_filter">
+                <label>Sort by :
+                    <select class="orderBY">
+                        <option selected disabled>Select</option>
+                        <option>A-Z order</option>
+                        <option>Z-A order</option>
+                        <option>ASC by price</option>
+                        <option>DESC by price</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    
+        <div class="add_search_total">
+            <button class="add_button" onclick="formHide()"><i class="fa-solid fa-plus" ></i>Add Product</button>
+            <input type="search" placeholder="Search here ..." class="search_input">
+        </div>
+    
+        <table>
+            <thead>
+               
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>category</th>
+                    <th>Actions</th>
+               
+            </thead>
+    
+            <tbody class="main_body"></tbody>
+        </table>
+    
+        <div class="form_container">
+            <form class="main_form">
+                <h2>Add/Edit Product</h2>
+                <label>Name :</label>
+                <input type="text" id="name">
+                <small></small>
+                <label for="Quantity">Quantity :</label>
+                <input type="number" id="Quantity">
+                <small></small>
+                <label for="price">Price :</label>
+                <input type="number" id="price">
+                <small></small>
+                <label for="image">Image URL :</label>
+                <input type="url" id="image">
+                <small></small>
+                <label >Category :</label>
+                <select id="form_select"></select>
+                <small></small>
+                <button id="submit">Submit</button>
+                <i class="fa-solid fa-square-xmark" onclick="formHide()"></i>
+            </form>
+        </div>
+    
+        <div class="stocks">
+            <div class="total decorate">
+                <h2>Total Stock value</h2>
+                <p id="amount"></p>
+                <p>Total value of available stocks</p>
+            </div>
+            <div class="lowStock decorate">
+                <h2>low stack Items</h2>
+                <p id="quantityItems"></p>
+                <p>Items with quantity below threshold</p>
+            </div>
+    
+            <div class="outStock decorate">
+                <h2>Out Of stock</h2>
+                <p id="noStocks"></p>
+                <p>Products currently out of stock</p>
+            </div>
+        </div>
+    
+        <h3><i class="fa-solid fa-chart-pie"></i>Category Wise Stock Summary</h3>
+        <table>
+            <thead>
+                <th>Category</th>
+                <th>Total Stocks</th>
+                <th>Total Quantity</th>
+                <th>Total Price(₹)</th>
+            </thead>
+            <tbody id="total_category"></tbody>
+        </table>
+    </div>
+
+    <script src="admin dashboard.js"></script>
+</body>
+</html>
+
